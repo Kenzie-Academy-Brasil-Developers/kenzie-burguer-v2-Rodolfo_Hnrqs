@@ -5,11 +5,12 @@ import { StyledHeader } from './style';
 import LogoKenzieBurguer from '../../assets/LogoKenzieBurguer.svg';
 
 import { StyledContainer } from '../../styles/grid';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from '../../providers/UserContext';
 
-const Header = () => {
-  const { userLogout } = useContext(UserContext)
+const Header = ({ setViewModal }) => {
+  const { userLogout } = useContext(UserContext);
+
   return (
     <StyledHeader>
       <StyledContainer containerWidth={1300}>
@@ -25,7 +26,7 @@ const Header = () => {
               <button
                 type='button'
                 onClick={() => {
-                  console.log('Criar lógica');
+                  setViewModal(true);
                 }}
               >
                 <MdShoppingCart size={28} />
